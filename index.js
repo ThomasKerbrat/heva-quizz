@@ -1,14 +1,20 @@
 
 // ===== Requires ===== //
 
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 const express = require('express');
+const { routes } = require('./src/routes.js');
 const app = express();
-const routes = require('./src/routes.js').routes;
 
 
 
 // ===== Config ===== //
 
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
+
+app.use(express.static('src/assets'));
 app.use(routes);
 
 app.listen(3000, () => {

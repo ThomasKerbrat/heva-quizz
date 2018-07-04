@@ -2,19 +2,19 @@
 // ===== Requires ===== //
 
 const express = require('express');
-const routes = express.Router();
+const router = express.Router();
 
 
 
 // ===== Config ===== //
 
-// router.use('/home', require('./home/home.js'));
 // router.use('/quizz', require('./quizz/quizz.js'));
 // router.use('/result', require('./result/result.js'));
-routes.use('/', require('./login/login.js'));
+router.use('/login', require('./login/login.js'));
+router.use('/', require('./home/home.js'));
 
 
 
 // ===== Exports ===== //
 
-module.exports.routes = routes;
+module.exports.routes = router;
