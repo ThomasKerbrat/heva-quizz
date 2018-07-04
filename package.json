@@ -4,6 +4,7 @@
   "description": "A simple NodeJS web application for making and passing quizz",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/ThomasKerbrat/heva-quizz/issues"
   },
-  "homepage": "https://github.com/ThomasKerbrat/heva-quizz#readme"
+  "homepage": "https://github.com/ThomasKerbrat/heva-quizz#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
 }
