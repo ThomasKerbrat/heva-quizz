@@ -34,7 +34,7 @@ function authenticate(req, res, next) {
     const users = JSON.parse(fs.readFileSync('data/users.json', 'utf-8'));
 
     for (let user of users) {
-        if (user.token === token && user.tokenExpiry < Date.now()) {
+        if (user.token === token && Date.now() < user.tokenExpiry) {
             req.user = {
                 id: user.id,
                 lastname: user.lastname,
@@ -45,7 +45,7 @@ function authenticate(req, res, next) {
         }
     }
 
-    if (req.user === null) {
+    if (req.user == null) {
         res.redirect(302, '/login');
         return;
     }
