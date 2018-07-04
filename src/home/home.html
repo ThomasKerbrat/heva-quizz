@@ -1,1 +1,48 @@
-<h1>Home</h1>
+<!doctype html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title>Accueil</title>
+        <link rel="stylesheet" href="/css/main.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+            <a href="/" class="navbar-brand">Heva Quizz</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#appnavbar" aria-controls="appnavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div id="appnavbar" class="collapse navbar-collapse">
+                <ul class="navbar-nav flex-grow-1">
+                    <span class="flex-grow-1"></span>
+                    <span class="navbar-text px-lg-3">{{fullname}}</span>
+                    <li class="nav-item">
+                        <a href="/logout" class="btn btn-outline-secondary">Deconnexion</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container">
+            <h1>Accueil</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, suscipit unde porro vitae eligendi inventore architecto non veritatis facilis, quia sed nisi voluptatem cupiditate. Ipsam voluptate expedita doloribus ipsum cupiditate.</p>
+            <div class="progress">
+                <div class="progress-bar w-25" role="progressbar">25 %</div>
+            </div>
+
+            <hr class="my-4">
+
+            <h2>Questionnaires</h2>
+            <ul class="list-group">
+                {{#each quizzes}}
+                <a class="list-group-item list-group-item-action" href="quizz/{{id}}">{{name}}</a>
+                {{/each}}
+            </ul>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    </body>
+</html>

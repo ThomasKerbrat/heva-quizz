@@ -50,7 +50,7 @@ function loginPOST(req, res) {
             user.token = crypto.createHash('sha256').update(Math.random().toString()).digest('hex');
             user.tokenExpiry = Date.now() + 3.6e6;
 
-            res.cookie('auth', user.token, { maxAge: 3.6e6, httpOnly: true });
+            res.cookie('auth', user.token, { expires: new Date(user.tokenExpiry + 3.6e6), httpOnly: true });
 
             fs.writeFileSync('data/users.json', JSON.stringify(users), 'utf-8');
             foundUser = true;
