@@ -4,12 +4,16 @@
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const express = require('express');
-const { routes } = require('./src/routes.js');
 const app = express();
+
+const { routes } = require('./src/routes.js');
+const { consolidate } = require('./src/storage/consolidate.js');
 
 
 
 // ===== Config ===== //
+
+consolidate();
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());

@@ -10,8 +10,8 @@ const router = express.Router();
 
 // router.use('/quizz', require('./quizz/quizz.js'));
 // router.use('/result', require('./result/result.js'));
-router.use('/login', require('./login/login.js'));
-router.use('/', require('./home/home.js'));
+router.use('/login', require('./handlers/login/login.js'));
+router.use('/', require('./handlers/home/home.js'));
 
 
 

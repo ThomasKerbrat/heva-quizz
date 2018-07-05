@@ -31,12 +31,10 @@
                 <div class="progress-bar w-25" role="progressbar">25 %</div>
             </div>
 
-            <hr class="my-4">
-
-            <h2>Questionnaires</h2>
+            <h2 class="my-4">Questionnaires</h2>
             <ul class="list-group">
                 {{#each quizzes}}
-                <a class="list-group-item list-group-item-action" href="quizz/{{id}}">{{name}}</a>
+                <a class="list-group-item list-group-item-action" href="quizz/{{code}}">{{name}}</a>
                 {{/each}}
             </ul>
         </div>

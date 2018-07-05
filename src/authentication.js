@@ -2,6 +2,9 @@
 // ===== Exports ===== //
 
 const fs = require('fs');
+const path = require('path');
+
+const config = require('./config.js');
 
 
 
@@ -31,7 +34,7 @@ function authenticate(req, res, next) {
     }
 
     const token = req.cookies.auth;
-    const users = JSON.parse(fs.readFileSync('data/users.json', 'utf-8'));
+    const users = JSON.parse(fs.readFileSync(path.join(config.storagePath, 'users/users.json'), 'utf-8'));
 
     for (let user of users) {
         if (user.token === token && Date.now() < user.tokenExpiry) {
