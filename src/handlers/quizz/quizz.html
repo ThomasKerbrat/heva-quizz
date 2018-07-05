@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title>Questionnaire {{quizz.name}}</title>
+        <link rel="stylesheet" href="/css/bootstrap-reboot.css">
+        <link rel="stylesheet" href="/css/bootstrap-grid.css">
+        <link rel="stylesheet" href="/css/bootstrap.css">
+        <link rel="stylesheet" href="/css/main.css">
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+            <a href="/" class="navbar-brand">Heva Quizz</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#appnavbar" aria-controls="appnavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div id="appnavbar" class="collapse navbar-collapse">
+                <ul class="navbar-nav flex-grow-1">
+                    <span class="flex-grow-1"></span>
+                    <span class="navbar-text px-lg-3">{{fullname}}</span>
+                    <li class="nav-item">
+                        <a href="/logout" class="btn btn-outline-secondary">Deconnexion</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container">
+            <h1 class="mb-4">Questionnaire : {{quizz.name}}</h1>
+
+            <form action="/quizzes/{{quizz.code}}/submit" method="post">
+                {{#each questions}}
+
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h2 class="h5 card-title">Question {{id}}</h2>
+
+                        <p class="card-text">{{title}}</p>
+
+                        {{#each choices}}
+                        <div class="mb-3">
+                            <div>{{{title}}}</div>
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" class="custom-control-input" id="qz.{{quizz.code}}.qn.{{../id}}.c.{{id}}" name="quizz.{{quizz.code}}.question.{{../id}}.c.{{id}}" value="none" checked>
+                                <label for="qz.{{quizz.code}}.qn.{{../id}}.c.{{id}}" class="custom-control-label">Je ne sais pas</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" class="custom-control-input" id="qz.{{quizz.code}}.qn.{{../id}}.c.{{id}}.y" name="quizz.{{quizz.code}}.question.{{../id}}.c.{{id}}" value="yes">
+                                <label for="qz.{{quizz.code}}.qn.{{../id}}.c.{{id}}.y" class="custom-control-label">Vrai</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" class="custom-control-input" id="qz.{{quizz.code}}.qn.{{../id}}.c.{{id}}.n" name="quizz.{{quizz.code}}.question.{{../id}}.c.{{id}}" value="no">
+                                <label for="qz.{{quizz.code}}.qn.{{../id}}.c.{{id}}.n" class="custom-control-label">Faux</label>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+                {{/each}}
+
+                <button type="submit" class="btn btn-primary">Valider</button>
+            </form>
+        </div>
+
+        <script src="/js/jquery-3.3.1.slim.js"></script>
+        <script src="/js/bootstrap.js"></script>
+        <script src="/js/bootstrap.bundle.js"></script>
+    </body>
+</html>

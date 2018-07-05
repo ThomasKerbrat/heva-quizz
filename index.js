@@ -4,16 +4,22 @@
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const express = require('express');
-const app = express();
+const handlebars = require('handlebars');
 
 const { routes } = require('./src/routes.js');
 const { consolidate } = require('./src/storage/consolidate.js');
+
+const app = express();
 
 
 
 // ===== Config ===== //
 
 consolidate();
+
+handlebars.registerHelper('increment', function (value) {
+    return parseInt(value) + 1;
+});
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
